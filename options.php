@@ -33,6 +33,12 @@ function tbp_settings_init(  ) {
 }
 
 
+function tbp_load_admin_style() {
+  wp_register_style( 'tbp_admin_css', plugin_dir_url( __FILE__ ) . '/assets/style.css', false, '1.0.0' );
+  wp_enqueue_style( 'tbp_admin_css' );
+}
+add_action( 'admin_enqueue_scripts', 'tbp_load_admin_style' );
+
 function tbp_account_id_render(  ) {
 
 	$options = get_option( 'tbp_settings' );
@@ -60,14 +66,27 @@ function tbp_options_page(  ) {
 			Enter your Big Picture account id for this project. You can locate your account id from the "Script Tag" settings menu in your Big Picture dashboard.
 		</p>
 		<p>
-			Once you have saved your account id, you can manage all of your integrations and tracking from the <a href="https://thebigpicture.io/">Big Picture dashboard.</a> 
+			Once you have saved your account id, you can manage all of your integrations and tracking from the <a href="https://thebigpicture.io/">Big Picture dashboard.</a>
 		</p>
+
 
 		<?php
 		settings_fields( 'pluginPage' );
 		do_settings_sections( 'pluginPage' );
 		submit_button();
 		?>
+
+		<div class="tbp-flex-container">
+			<div class="tbp-flex-item">
+				<img src="<?php echo plugin_dir_url( __FILE__ ) . '/assets/tbp-id-2.png' ?>">
+			</div>
+			<div class="tbp-flex-item">
+				<img src="<?php echo plugin_dir_url( __FILE__ ) . '/assets/tbp-id-3.png' ?>">
+			</div>
+			<div class="tbp-flex-item">
+				<img src="<?php echo plugin_dir_url( __FILE__ ) . '/assets/tbp-id-4.png' ?>">
+			</div>
+		</div>
 
 	</form>
 	<?php
