@@ -36,5 +36,8 @@ To get started, simply install the Big Picture Analytics plugin and enter your P
 
 == Changelog ==
 
+= 1.1 =
+* Update for clarity on Project ID
+
 = 1.0 =
 * Initial release

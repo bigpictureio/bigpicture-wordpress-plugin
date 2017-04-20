@@ -16,15 +16,15 @@ function tbp_settings_init(  ) {
 
 	add_settings_section(
 		'tbp_pluginPage_section',
-		__( 'Enter your Big Picture Account ID', 'wordpress' ),
+		__( 'Enter your Big Picture Project ID', 'wordpress' ),
 		'tbp_settings_section_callback',
 		'pluginPage'
 	);
 
 	add_settings_field(
-		'tbp_account_id',
-		__( 'Your Big Picture account id', 'wordpress' ),
-		'tbp_account_id_render',
+		'tbp_project_id',
+		__( 'Your Big Picture Project ID', 'wordpress' ),
+		'tbp_project_id_render',
 		'pluginPage',
 		'tbp_pluginPage_section'
 	);
@@ -34,16 +34,16 @@ function tbp_settings_init(  ) {
 
 
 function tbp_load_admin_style() {
-  wp_register_style( 'tbp_admin_css', plugin_dir_url( __FILE__ ) . '/assets/style.css', false, '1.0.0' );
+  wp_register_style( 'tbp_admin_css', plugin_dir_url( __FILE__ ) . '/assets/tbp-style.css', false, '1.0.0' );
   wp_enqueue_style( 'tbp_admin_css' );
 }
 add_action( 'admin_enqueue_scripts', 'tbp_load_admin_style' );
 
-function tbp_account_id_render(  ) {
+function tbp_project_id_render(  ) {
 
 	$options = get_option( 'tbp_settings' );
 	?>
-	<input type='text' name='tbp_settings[tbp_account_id]' value='<?php echo $options['tbp_account_id']; ?>'>
+	<input type='text' name='tbp_settings[tbp_project_id]' value='<?php echo $options['tbp_project_id']; ?>'>
 	<?php
 
 }
@@ -51,7 +51,7 @@ function tbp_account_id_render(  ) {
 
 function tbp_settings_section_callback(  ) {
 
-	echo __( 'You can find your Account ID in the settings page of https://thebigpicture.io', 'wordpress' );
+	echo __( 'You can find your Project ID in the settings page of https://thebigpicture.io', 'wordpress' );
 
 }
 
@@ -63,10 +63,10 @@ function tbp_options_page(  ) {
 
 		<h2>Analytics by The Big Picture</h2>
 		<p>
-			Enter your Big Picture account id for this project. You can locate your account id from the "Script Tag" settings menu in your Big Picture dashboard.
+			Enter your Big Picture Project ID for this project. You can locate your Project ID from the "Script Tag" settings menu in your Big Picture dashboard.
 		</p>
 		<p>
-			Once you have saved your account id, you can manage all of your integrations and tracking from the <a href="https://thebigpicture.io/">Big Picture dashboard.</a>
+			Once you have saved your Project ID, you can manage all of your integrations and tracking from the <a href="https://thebigpicture.io/">Big Picture dashboard.</a>
 		</p>
 
 
@@ -75,16 +75,35 @@ function tbp_options_page(  ) {
 		do_settings_sections( 'pluginPage' );
 		submit_button();
 		?>
+		<h2>Where to find your Big Picture Project ID</h2>
 
 		<div class="tbp-flex-container">
 			<div class="tbp-flex-item">
-				<img src="<?php echo plugin_dir_url( __FILE__ ) . '/assets/tbp-id-2.png' ?>">
+				<img src="<?php echo plugin_dir_url( __FILE__ ) . '/assets/tbp-guide-1.png' ?>">
 			</div>
 			<div class="tbp-flex-item">
-				<img src="<?php echo plugin_dir_url( __FILE__ ) . '/assets/tbp-id-3.png' ?>">
+				<h2>Click the gear icon</h2>
+				<p>Choose the gear icon from the project page.</p>
+			</div>
+		</div>
+
+		<div class="tbp-flex-container">
+			<div class="tbp-flex-item">
+				<img src="<?php echo plugin_dir_url( __FILE__ ) . '/assets/tbp-guide-2.png' ?>">
 			</div>
 			<div class="tbp-flex-item">
-				<img src="<?php echo plugin_dir_url( __FILE__ ) . '/assets/tbp-id-4.png' ?>">
+				<h2>Choose "General"</h2>
+				<p>Choose "General" from the settings menu.</p>
+			</div>
+		</div>
+
+		<div class="tbp-flex-container">
+			<div class="tbp-flex-item">
+				<img src="<?php echo plugin_dir_url( __FILE__ ) . '/assets/tbp-guide-3.png' ?>">
+			</div>
+			<div class="tbp-flex-item">
+				<h2>Copy your Project ID</h2>
+				<p>Copy your Project ID, and paste it in this plugin.</p>
 			</div>
 		</div>
 
