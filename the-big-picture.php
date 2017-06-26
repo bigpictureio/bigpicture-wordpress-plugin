@@ -22,7 +22,7 @@ include_once( TBP_FILE_PATH . '/options.php' );
 // This just echoes the chosen line, we'll position it later
 function tbp_admin_notice() {
 	$options = get_option( 'tbp_settings' );
-  if (!$options['tbp_account_id']) {
+  if (!$options['tbp_project_id']) {
     ?>
     <div class="notice notice-warning">
       <p id='tbo-warning'>Your Big Picture ID is not set. <a class="button button-primary" href='/wp-admin/options-general.php?page=the_big_picture'>Set it now</a></p>
@@ -36,9 +36,9 @@ add_action( 'admin_notices', 'tbp_admin_notice' );
 
 function tbp_install_snippet () {
   $options = get_option( 'tbp_settings' );
-  if ($options['tbp_account_id']) {
+  if ($options['tbp_project_id']) {
     // build the snippet
-    echo '<script>!function(a,b,c){var d=a.bigPicture=a.bigPicture||{};d.SNIPPET_VERSION=1,d.handler=function(a){if(void 0!==d.callback)try{return d.callback(a)}catch(a){}},d.eventList=["mousedown","mouseup","click","submit"],d._q=[],d.methods=["integration","intelReady","on","off"],d.factory=function(a){return function(){var b=Array.prototype.slice.call(arguments);return b.unshift(a),d._q.push(b),d}};for(var e=0;e<d.methods.length;e++){var f=d.methods[e];d[f]=d.factory(f)}d.getCookie=function(a){var c="; "+b.cookie,d=c.split("; "+a+"=");return 2==d.length&&d.pop().split(";").shift()};var g=d.isEditor=function(){try{return a.self!==a.top&&(new RegExp("app"+c,"ig").test(b.referrer)||"edit"==d.getCookie("_bpr_edit"))}catch(a){return!1}}();d.init=function(e){if(d.projectId=e,!g)for(var f=0;f<d.eventList.length;f++)a.addEventListener(d.eventList[f],d.handler,!0);var h=b.createElement("script");h.async=!0;var i=g?"/editor/editor":"/public-"+e;h.src="//cdn"+c+i+".js",b.getElementsByTagName("head")[0].appendChild(h)}}(window,document,".thebigpicture.io");bigPicture.init("' . $options['tbp_account_id'] . '");</script>';
+    echo '<script>!function(a,b,c){var d=a.bigPicture=a.bigPicture||{};d.SNIPPET_VERSION=1,d.handler=function(a){if(void 0!==d.callback)try{return d.callback(a)}catch(a){}},d.eventList=["mousedown","mouseup","click","submit"],d._q=[],d.methods=["integration","intelReady","on","off"],d.factory=function(a){return function(){var b=Array.prototype.slice.call(arguments);return b.unshift(a),d._q.push(b),d}};for(var e=0;e<d.methods.length;e++){var f=d.methods[e];d[f]=d.factory(f)}d.getCookie=function(a){var c="; "+b.cookie,d=c.split("; "+a+"=");return 2==d.length&&d.pop().split(";").shift()};var g=d.isEditor=function(){try{return a.self!==a.top&&(new RegExp("app"+c,"ig").test(b.referrer)||"edit"==d.getCookie("_bpr_edit"))}catch(a){return!1}}();d.init=function(e){if(d.projectId=e,!g)for(var f=0;f<d.eventList.length;f++)a.addEventListener(d.eventList[f],d.handler,!0);var h=b.createElement("script");h.async=!0;var i=g?"/editor/editor":"/public-"+e;h.src="//cdn"+c+i+".js",b.getElementsByTagName("head")[0].appendChild(h)}}(window,document,".thebigpicture.io");bigPicture.init("' . $options['tbp_project_id'] . '");</script>';
   }
 }
 
