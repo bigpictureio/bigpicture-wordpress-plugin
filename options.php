@@ -16,7 +16,7 @@ function tbp_settings_init(  ) {
 
 	add_settings_section(
 		'tbp_pluginPage_section',
-		__( 'Enter your Big Picture Project ID', 'wordpress' ),
+		__( 'Enter your BigPicture.io Project ID', 'wordpress' ),
 		'tbp_settings_section_callback',
 		'pluginPage'
 	);
