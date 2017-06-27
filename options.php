@@ -5,7 +5,7 @@ add_action( 'admin_init', 'tbp_settings_init' );
 
 function tbp_add_admin_menu(  ) {
 
-	add_submenu_page( 'options-general.php', 'The Big Picture', 'The Big Picture', 'manage_options', 'the_big_picture', 'tbp_options_page' );
+	add_submenu_page( 'options-general.php', 'BigPicture.io', 'BigPicture.io', 'manage_options', 'the_big_picture', 'tbp_options_page' );
 
 }
 
@@ -16,7 +16,7 @@ function tbp_settings_init(  ) {
 
 	add_settings_section(
 		'tbp_pluginPage_section',
-		__( 'Enter your Big Picture Project ID', 'wordpress' ),
+		__( 'Enter your BigPicture.io Project ID', 'wordpress' ),
 		'tbp_settings_section_callback',
 		'pluginPage'
 	);
@@ -51,7 +51,7 @@ function tbp_project_id_render(  ) {
 
 function tbp_settings_section_callback(  ) {
 
-	echo __( 'You can find your Project ID in the settings page of https://thebigpicture.io', 'wordpress' );
+	echo __( 'You can find your Project ID in the settings page of https://bigpicture.io', 'wordpress' );
 
 }
 
@@ -61,12 +61,12 @@ function tbp_options_page(  ) {
 	?>
 	<form action='options.php' method='post'>
 
-		<h2>Analytics by The Big Picture</h2>
+		<h2>Analytics by BigPicture.io</h2>
 		<p>
-			Enter your Big Picture Project ID for this project. You can locate your Project ID from the "Script Tag" settings menu in your Big Picture dashboard.
+			Enter your BigPicture.io Project ID for this project. You can locate your Project ID from the "Script Tag" settings menu in your BigPicture.io dashboard.
 		</p>
 		<p>
-			Once you have saved your Project ID, you can manage all of your integrations and tracking from the <a href="https://thebigpicture.io/">Big Picture dashboard.</a>
+			Once you have saved your Project ID, you can manage all of your integrations and tracking from the <a href="https://thebigpicture.io/">BigPicture.io dashboard.</a>
 		</p>
 
 
@@ -75,7 +75,7 @@ function tbp_options_page(  ) {
 		do_settings_sections( 'pluginPage' );
 		submit_button();
 		?>
-		<h2>Where to find your Big Picture Project ID</h2>
+		<h2>Where to find your BigPicture.io Project ID</h2>
 
 		<div class="tbp-flex-container">
 			<div class="tbp-flex-item">

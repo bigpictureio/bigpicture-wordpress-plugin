@@ -25,7 +25,7 @@ function tbp_admin_notice() {
   if (!$options['tbp_project_id']) {
     ?>
     <div class="notice notice-warning">
-      <p id='tbo-warning'>Your Big Picture ID is not set. <a class="button button-primary" href='/wp-admin/options-general.php?page=the_big_picture'>Set it now</a></p>
+      <p id='tbo-warning'>Your BigPicture.io Project ID is not set. <a class="button button-primary" href='/wp-admin/options-general.php?page=the_big_picture'>Set it now</a></p>
     </div>
     <?
   }
